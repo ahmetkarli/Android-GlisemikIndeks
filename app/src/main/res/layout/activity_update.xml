@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_add">
+
+    <EditText
+        android:id="@+id/txtName"
+        android:layout_width="300dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="10dp"
+        android:ems="10"
+        android:hint="Besin Adı"
+        android:inputType="textPersonName"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinner" />
+
+    <EditText
+        android:id="@+id/txtGliIndeks"
+        android:layout_width="300dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="10dp"
+        android:ems="10"
+        android:hint="Glisemik indeks"
+        android:inputType="number"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtName" />
+
+    <EditText
+        android:id="@+id/txtCarbonAmount"
+        android:layout_width="300dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="10dp"
+        android:ems="10"
+        android:hint="100g'daki karbonhidrat miktarı"
+        android:inputType="numberDecimal"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtGliIndeks" />
+
+    <EditText
+        android:id="@+id/txtCalAmount"
+        android:layout_width="300dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:ems="10"
+        android:hint="100g'daki kalori miktarı"
+        android:inputType="numberDecimal"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtCarbonAmount" />
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="300dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="100dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

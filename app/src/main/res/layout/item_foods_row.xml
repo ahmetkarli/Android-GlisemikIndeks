@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cV"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    app:cardCornerRadius="20dp"
+    app:cardElevation="10dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bgaaa">
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="22dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/txtName"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txtName"
+            android:layout_width="214dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/aladin"
+            android:text="Besin Adı"
+            android:textColor="@color/black"
+            android:textSize="23sp"
+            app:layout_constraintStart_toEndOf="@+id/view"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txtGli"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="9dp"
+            android:layout_marginTop="10dp"
+            android:text="Glisemik İndeksi"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toEndOf="@+id/view"
+            app:layout_constraintTop_toBottomOf="@+id/txtCategory" />
+
+        <TextView
+            android:id="@+id/txtCarbonAmount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="9dp"
+            android:layout_marginTop="10dp"
+            android:text="Karbonhidrat miktarı (100gr'daki)"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toEndOf="@+id/view"
+            app:layout_constraintTop_toBottomOf="@+id/txtGli" />
+
+        <TextView
+            android:id="@+id/txtCalAmount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="9dp"
+            android:layout_marginTop="10dp"
+            android:text="Kalori (100gr'daki)"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toEndOf="@+id/view"
+            app:layout_constraintTop_toBottomOf="@+id/txtCarbonAmount" />
+
+        <TextView
+            android:id="@+id/txtCategory"
+            android:layout_width="297dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="9dp"
+            android:layout_marginTop="10dp"
+            android:text="Kategori Adı"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toEndOf="@+id/view"
+            app:layout_constraintTop_toBottomOf="@+id/txtName" />
+
+        <ImageButton
+            android:id="@+id/btnDelete"
+            android:layout_width="41dp"
+            android:layout_height="41dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="10dp"
+            android:backgroundTint="@color/white"
+            app:layout_constraintEnd_toStartOf="@+id/btnEdit"
+            app:layout_constraintHorizontal_bias="0.6"
+            app:layout_constraintStart_toEndOf="@+id/view"
+            app:layout_constraintTop_toBottomOf="@+id/txtCalAmount"
+            app:srcCompat="@drawable/garbage" />
+
+        <ImageButton
+            android:id="@+id/btnEdit"
+            android:layout_width="41dp"
+            android:layout_height="41dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="244dp"
+            android:backgroundTint="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtCalAmount"
+            app:srcCompat="@drawable/edit" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>
