@@ -4,13 +4,16 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/snowy/Desktop/bilgeadam_kotlin/android/GlisemikIndeks/app/src/main/res/drawable/add.xml" value="0.1575" />
+        <entry key="..\:/Users/snowy/Desktop/bilgeadam_kotlin/android/GlisemikIndeks/app/src/main/res/drawable/category.xml" value="0.1535" />
         <entry key="..\:/Users/snowy/Desktop/bilgeadam_kotlin/android/GlisemikIndeks/app/src/main/res/drawable/edit.xml" value="0.1575" />
         <entry key="..\:/Users/snowy/Desktop/bilgeadam_kotlin/android/GlisemikIndeks/app/src/main/res/drawable/logo.xml" value="0.1535" />
+        <entry key="..\:/Users/snowy/Desktop/bilgeadam_kotlin/android/GlisemikIndeks/app/src/main/res/drawable/sort.xml" value="0.1535" />
         <entry key="..\:/Users/snowy/Desktop/bilgeadam_kotlin/android/GlisemikIndeks/app/src/main/res/layout/activity_add.xml" value="0.25" />
         <entry key="..\:/Users/snowy/Desktop/bilgeadam_kotlin/android/GlisemikIndeks/app/src/main/res/layout/activity_category.xml" value="0.264" />
         <entry key="..\:/Users/snowy/Desktop/bilgeadam_kotlin/android/GlisemikIndeks/app/src/main/res/layout/activity_category_row.xml" value="0.25" />
         <entry key="..\:/Users/snowy/Desktop/bilgeadam_kotlin/android/GlisemikIndeks/app/src/main/res/layout/activity_intro.xml" value="0.25" />
         <entry key="..\:/Users/snowy/Desktop/bilgeadam_kotlin/android/GlisemikIndeks/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Users/snowy/Desktop/bilgeadam_kotlin/android/GlisemikIndeks/app/src/main/res/layout/activity_spotlight.xml" value="0.2" />
         <entry key="..\:/Users/snowy/Desktop/bilgeadam_kotlin/android/GlisemikIndeks/app/src/main/res/layout/activity_tutorial.xml" value="0.25" />
         <entry key="..\:/Users/snowy/Desktop/bilgeadam_kotlin/android/GlisemikIndeks/app/src/main/res/layout/activity_update.xml" value="0.25" />
         <entry key="..\:/Users/snowy/Desktop/bilgeadam_kotlin/android/GlisemikIndeks/app/src/main/res/layout/category_add.xml" value="0.25" />
@@ -19,7 +22,7 @@
         <entry key="..\:/Users/snowy/Desktop/bilgeadam_kotlin/android/GlisemikIndeks/app/src/main/res/layout/item_foods_row.xml" value="0.264" />
         <entry key="..\:/Users/snowy/Desktop/bilgeadam_kotlin/android/GlisemikIndeks/app/src/main/res/layout/item_row.xml" value="0.25" />
         <entry key="..\:/Users/snowy/Desktop/bilgeadam_kotlin/android/GlisemikIndeks/app/src/main/res/layout/slide_layout.xml" value="0.264" />
-        <entry key="..\:/Users/snowy/Desktop/bilgeadam_kotlin/android/GlisemikIndeks/app/src/main/res/menu/main_menu.xml" value="0.25" />
+        <entry key="..\:/Users/snowy/Desktop/bilgeadam_kotlin/android/GlisemikIndeks/app/src/main/res/menu/main_menu.xml" value="0.264" />
       </map>
     </option>
   </component>

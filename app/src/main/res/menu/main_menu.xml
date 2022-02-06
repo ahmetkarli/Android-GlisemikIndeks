@@ -4,9 +4,13 @@
 
     <item
         android:id="@+id/action_search"
-        android:icon="@android:drawable/ic_menu_search"
-        app:showAsAction="always"
-        app:actionViewClass="androidx.appcompat.widget.SearchView"/>
+        android:icon="@drawable/search"
+        app:actionViewClass="androidx.appcompat.widget.SearchView"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/action_sort"
+        android:icon="@drawable/sort"
+        app:showAsAction="always" />
     <item
         android:id="@+id/action_categoryEdit"
         android:icon="@drawable/category"

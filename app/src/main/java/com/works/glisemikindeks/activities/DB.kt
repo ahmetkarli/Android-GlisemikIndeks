@@ -37,6 +37,58 @@ class DB(context: Context?, name: String? = "gli.db", factory: SQLiteDatabase.Cu
         onCreate(p0)
     }
 
+    fun getSortedFoods(categoryID: Int):ArrayList<FoodsDbModel>{
+        val arr = ArrayList<FoodsDbModel>()
+
+        val read = this.readableDatabase
+        val query = "select * from foods where categoryID = "+categoryID+ " order by gliIndex desc "
+        val cursor = read.rawQuery(query,null)
+
+
+        while(cursor.moveToNext()){
+
+            val foodID = cursor.getInt(0)
+            val categoryID = cursor.getInt(1)
+            val foodName = cursor.getString(2)
+            val gliIndeks = cursor.getString(3)
+            val carbonAmount = cursor.getString(4)
+            val calAmount = cursor.getString(5)
+
+            val f = FoodsDbModel(foodID, categoryID, foodName, gliIndeks, carbonAmount, calAmount)
+            arr.add(f)
+
+        }
+
+        return arr
+
+    }
+
+    fun foodsByCategory(categoryID: Int):ArrayList<FoodsDbModel>{
+
+        val arr = ArrayList<FoodsDbModel>()
+
+        val read = this.readableDatabase
+        val query = "select * from foods where categoryID = "+categoryID
+        val cursor = read.rawQuery(query,null)
+
+
+        while(cursor.moveToNext()){
+
+            val foodID = cursor.getInt(0)
+            val categoryID = cursor.getInt(1)
+            val foodName = cursor.getString(2)
+            val gliIndeks = cursor.getString(3)
+            val carbonAmount = cursor.getString(4)
+            val calAmount = cursor.getString(5)
+
+            val f = FoodsDbModel(foodID, categoryID, foodName, gliIndeks, carbonAmount, calAmount)
+            arr.add(f)
+
+        }
+
+        return arr
+    }
+
     fun getCategoryName(categoryID: Int):String{
 
         val read = this.readableDatabase

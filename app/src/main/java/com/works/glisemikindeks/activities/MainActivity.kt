@@ -11,11 +11,16 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
+import android.view.animation.DecelerateInterpolator
+import android.widget.AdapterView
+import android.widget.FrameLayout
 import android.widget.Toast
+import android.widget.Toast.LENGTH_SHORT
+import android.widget.Toast.makeText
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
-import androidx.core.view.size
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.snackbar.Snackbar
 import com.works.glisemikindeks.R
@@ -39,6 +44,8 @@ class MainActivity : AppCompatActivity(), SearchView.OnQueryTextListener {
     lateinit var sha : SharedPreferences
     lateinit var edit : SharedPreferences.Editor
     private lateinit var adapter:FoodsAdapter
+    private var currentToast: Toast? = null
+
 
     var arrCategory = ArrayList<CategoryModel>()
     var arrFoods0 = ArrayList<FoodsModel>()
@@ -62,7 +69,9 @@ class MainActivity : AppCompatActivity(), SearchView.OnQueryTextListener {
 
         val status = sha.getString("status","")
         if(status == ""){
-            val i = Intent(this, Intro::class.java)
+
+
+        val i = Intent(this, Intro::class.java)
             startActivity(i)
         }
 
@@ -100,6 +109,25 @@ class MainActivity : AppCompatActivity(), SearchView.OnQueryTextListener {
 
         }
 
+            db = DB(this)
+            arrCategories = db.getAllCategories()
+
+            bind.spinnerCategory.adapter = CategorySpinnerAdapter(this,arrCategories)
+
+            bind.spinnerCategory.onItemSelectedListener = object :AdapterView.OnItemSelectedListener{
+                override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
+                    arrCategories = db.getAllCategories()
+                    val categoryID =  arrCategories.get(p2).categoryID
+                    getAllFoodsbyCategory(categoryID!!)
+                }
+
+                override fun onNothingSelected(p0: AdapterView<*>?) {
+                    TODO("Not yet implemented")
+                }
+
+
+            }
+
             bind.rV.setHasFixedSize(true)
             bind.rV.layoutManager = LinearLayoutManager(this)
             getAll()
@@ -120,20 +148,22 @@ class MainActivity : AppCompatActivity(), SearchView.OnQueryTextListener {
 
                     db = DB(this)
                     arrFoods = db.getAllFoods()
+                    var categoryID = 0
+
                     arrCategories = db.getAllCategories()
 
+                    if(arrCategories.size > 0){
+                         categoryID = arrCategories.get(dialogNameBinding.spinner.selectedItemId.toInt()).categoryID!!
+
+                    }
 
 
-
-
-
-                    val categoryID = arrCategories.get(dialogNameBinding.spinner.selectedItemId.toInt()).categoryID
                     val foodName = dialogNameBinding.txtName.text.toString().trim()
                     val gliIndeks= dialogNameBinding.txtGliIndeks.text.toString().trim()
                     val carbonAmount= dialogNameBinding.txtCarbonAmount.text.toString().trim()
                     val calAmount= dialogNameBinding.txtCalAmount.text.toString().trim()
 
-                    if( !TextUtils.isEmpty(foodName) && !TextUtils.isEmpty(gliIndeks) &&
+                    if( categoryID != 0 && !TextUtils.isEmpty(foodName) && !TextUtils.isEmpty(gliIndeks) &&
                         !TextUtils.isEmpty(carbonAmount) && !TextUtils.isEmpty(calAmount)){
 
                         db = DB(this)
@@ -164,6 +194,7 @@ class MainActivity : AppCompatActivity(), SearchView.OnQueryTextListener {
         arrFoods = db.getAllFoods()
         arrCategories = db.getAllCategories()
 
+        bind.spinnerCategory.adapter = CategorySpinnerAdapter(this,arrCategories)
         bind.rV.adapter  = FoodsAdapter(this,arrFoods,arrCategories)
         super.onStart()
     }
@@ -194,6 +225,18 @@ class MainActivity : AppCompatActivity(), SearchView.OnQueryTextListener {
                 val intent = Intent(this, Category::class.java)
                 startActivity(intent)
             }
+            R.id.action_sort->{
+
+                db = DB(this)
+
+                arrCategories = db.getAllCategories()
+                val categoryID = arrCategories.get(bind.spinnerCategory.selectedItemId.toInt()).categoryID!!
+                arrFoods = db.getSortedFoods(categoryID)
+
+
+                bind.rV.adapter  = FoodsAdapter(this,arrFoods,arrCategories)
+
+            }
 
         }
 
@@ -208,6 +251,13 @@ class MainActivity : AppCompatActivity(), SearchView.OnQueryTextListener {
         search(newText!!)
         return true
     }
+
+  fun getAllFoodsbyCategory(categoryID:Int){
+      db = DB(this)
+      arrFoods = db.foodsByCategory(categoryID)
+      arrCategories = db.getAllCategories()
+      bind.rV.adapter  = FoodsAdapter(this,arrFoods,arrCategories)
+  }
 
   fun getAll(){
         db = DB(this)
